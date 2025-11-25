@@ -22,6 +22,3 @@ Per utilizzare gli script, posiziona il tuo file video `.mp4` nella stessa direc
 
 **Nota:** Il file `DVD1.mp4` non è incluso in questo repository per motivi di dimensioni e privacy.
 
----
-
-Grazie per aver visitato il repository!
