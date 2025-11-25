@@ -5,7 +5,15 @@
 # e utilizzando un algoritmo di ricampionamento di alta qualità (Lanczos).
 
 # --- Variabili ---
-INPUT_FILE="DVD1.mp4"
+# Rileva automaticamente il primo file .mp4 nella directory.
+mp4_files=(*.mp4)
+if [ ${#mp4_files[@]} -eq 0 ]; then
+    echo "Errore: Nessun file .mp4 trovato nella directory."
+    exit 1
+elif [ ${#mp4_files[@]} -gt 1 ]; then
+    echo "Attenzione: Trovati multipli file .mp4. Utilizzo il primo: ${mp4_files[0]}"
+fi
+INPUT_FILE="${mp4_files[0]}"
 OUTPUT_DIR="screenshots_hq"
 # Frequenza di campionamento: 1 fotogramma ogni 5 secondi.
 RATE="1/3"

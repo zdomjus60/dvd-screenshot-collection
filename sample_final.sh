@@ -5,7 +5,15 @@
 # Questo metodo è affidabile e non dipende da software esterni.
 
 # --- Variabili ---
-INPUT_FILE="DVD1.mp4"
+# Rileva automaticamente il primo file .mp4 nella directory.
+mp4_files=(*.mp4)
+if [ ${#mp4_files[@]} -eq 0 ]; then
+    echo "Errore: Nessun file .mp4 trovato nella directory."
+    exit 1
+elif [ ${#mp4_files[@]} -gt 1 ]; then
+    echo "Attenzione: Trovati multipli file .mp4. Utilizzo il primo: ${mp4_files[0]}"
+fi
+INPUT_FILE="${mp4_files[0]}"
 OUTPUT_DIR="screenshots_final"
 RATE="1/3"
 # Risoluzione orizzontale di output (es. 1280 per 720p, 1920 per 1080p)
